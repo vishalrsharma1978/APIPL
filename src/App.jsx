@@ -297,7 +297,8 @@ function Contact() {
         <div className="contact-details">
           <a href={`tel:${company.phone.replace(/\s/g, "")}`}><Phone size={18} /><span>{company.phone}<small>{company.alternatePhone}</small></span></a>
           <a href={`mailto:${company.email}`}><Mail size={18} /><span>{company.email}</span></a>
-          <div><MapPin size={18} /><span>{company.registeredOffice}</span></div>
+          <div><MapPin size={18} /><span>Registered Office<small>{company.registeredOffice}</small></span></div>
+          <div><MapPin size={18} /><span>Factory / Plant Address<small>{company.plantAddress}</small></span></div>
         </div>
       </div>
       <a href={createWhatsAppUrl("Hello APIPL, I have a requirement for RT 6901 railway inserts.")} target="_blank" rel="noreferrer" className="contact-circle">
