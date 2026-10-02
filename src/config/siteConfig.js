@@ -5,9 +5,9 @@ export const siteConfig = {
     cin: "U24319PN2025PTC241228",
     incorporated: "25 April 2025",
     email: "aashipowertech@gmail.com",
-    phone: "+91 99374 78821",
-    alternatePhone: "+91 98220 93075",
-    whatsappNumber: "919937478821",
+    phone: "+91 98220 93075",
+    alternatePhone: "+91 99374 78821",
+    whatsappNumber: "919822093075",
     registeredOffice:
       "Amanora Apex, Second Floor, Office No. 221, Hadapsar, Pune, Maharashtra 411028, India",
     plantAddress:
