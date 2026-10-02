@@ -13,6 +13,32 @@ export const siteConfig = {
     plantAddress:
       "Khata No. 22/167, Plot No. 195/342, 193; Khata No. 1/4, Plot No. 191/394, Birmitrapur, Panposh, Bijabahal Kuarmunda, Sundargarh, Odisha 770039",
     directors: ["Mr. Utkarsh Gadodia", "Mr. Sonu Maheshchand Sharma"],
+    otherBusinessUnits: [
+      {
+        name: "SUPERTECH RAIL INFRA-PROJECTS PVT. LTD.",
+        railway: "Under Central Railway",
+        address:
+          "Survey No. 908/1/2, Near-Ganesha Village Road, Kasthi Rly Station, Kasthi, Taluka - Shrigonda, Dist. Ahmednagar - 414701 MH.",
+        email: "supertechrail@gmail.com",
+        phone: "+91 98220 93075",
+      },
+      {
+        name: "RAGHAVENDRA RAIL LINES PVT. LTD.",
+        railway: "Under South Central Railway",
+        address:
+          "Survey No. 32 & 33 Bodjanampet Village - Grampanchayat, Balanagar Mandal, Bodajanampet, Mehbubnagar, Telanagana - 509202",
+        email: "raghavendraraillines@gmail.com",
+        phone: "+91 98220 93075",
+      },
+      {
+        name: "PARAMOUNT RAIL INFRA PVT. LTD.",
+        railway: "Under Western Railway",
+        address:
+          "Survey No. 266/4, Village – Godavari, Near- Digsar Railway Station, Taluka - Muli, Dist. Surendranagar - 363510 Gujrat.",
+        email: "csppripl@gmail.com",
+        phone: "+91 98220 93075",
+      },
+    ],
     profile:
       "Aashi Powertech India Private Limited manufactures ductile-iron and cast-iron castings on advanced ARPA 350 lines. Our RDSO-approved plant combines special-purpose machinery and IoT systems with Industry 4.0 practices to deliver consistent, precision-engineered components.",
     vision:

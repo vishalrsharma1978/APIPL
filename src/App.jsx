@@ -101,9 +101,9 @@ function CompanyProfile() {
         </div>
       </div>
       <div className="company-metrics">
-        <article><strong>12,000</strong><span>MT casting capacity</span></article>
+        <article><strong>6,000</strong><span>MT casting capacity</span></article>
         <article><strong>1–40</strong><span>kg casting range</span></article>
-        <article><strong>9 lakh</strong><span>inserts per month</span></article>
+        <article><strong>4.5 lakh</strong><span>inserts per month</span></article>
         <article><strong>RDSO</strong><span>approved plant</span></article>
       </div>
       <div className="company-story">
@@ -309,6 +309,21 @@ function Contact() {
         </span>
         <span className="contact-action-arrow"><ArrowRight /></span>
       </a>
+      <div className="business-units">
+        <span className="kicker light">Our other business units</span>
+        <p>Our RDSO-approved operational plants are available at the following locations:</p>
+        <div className="business-unit-grid">
+          {company.otherBusinessUnits.map(unit => (
+            <article key={unit.name} className="business-unit">
+              <h3>{unit.name}</h3>
+              <span className="business-unit-railway">({unit.railway})</span>
+              <div className="business-unit-row"><MapPin size={16} /><span>{unit.address}</span></div>
+              <a className="business-unit-row" href={`mailto:${unit.email}`}><Mail size={16} /><span>{unit.email}</span></a>
+              <a className="business-unit-row" href={`tel:${unit.phone.replace(/\s/g, "")}`}><Phone size={16} /><span>{unit.phone}</span></a>
+            </article>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
