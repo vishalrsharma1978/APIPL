@@ -22,7 +22,7 @@ export const siteConfig = {
   },
   product: {
     name: "RT 6901 Insert",
-    category: "SGCI Railway Insert",
+    category: "Railway Sleeper Insert",
     description:
       "A high-strength spheroidal graphite cast iron insert engineered for concrete railway sleepers and consistent track fastening performance.",
     specifications: [

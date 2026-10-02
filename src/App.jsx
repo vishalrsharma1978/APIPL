@@ -65,11 +65,15 @@ function Hero() {
       <div className="hero-content">
         <div className="eyebrow"><span /> Engineered for Indian Railways</div>
         <h1>Strength cast into<br /><em>every connection.</em></h1>
-        <p>Precision SGCI railway inserts built for dependable fastening, dimensional consistency and industrial-scale supply.</p>
+        <p>Precision railway inserts built for dependable fastening, dimensional consistency and industrial-scale supply.</p>
         <div className="hero-actions">
           <a className="button primary" href="#product">Explore the product <ArrowRight size={18} /></a>
           <a className="button ghost" href="#specifications">View specifications</a>
         </div>
+      </div>
+      <div className="hero-signature" aria-hidden="true">
+        <span className="signature-ring"><strong>AP</strong><i>01</i></span>
+        <p>Precision<br />in motion</p>
       </div>
       <div className="hero-stats">
         <div><strong>500</strong><span>N/mm² tensile strength</span></div>
@@ -142,12 +146,12 @@ function Product() {
         </div>
         <div className="product-copy">
           <span className="product-code">RT 6901</span>
-          <h3>SGCI Railway Insert</h3>
+          <h3>Railway Sleeper Insert</h3>
           <p>Embedded into concrete sleepers, the RT 6901 provides a robust anchoring point for rail fastening clips—transferring loads reliably across demanding track conditions.</p>
           <ul>
             {["SG Iron 500/7 construction", "Controlled dimensional tolerances", "High load-bearing integrity", "Production-ready at scale"].map(item => <li key={item}><Check size={17} />{item}</li>)}
           </ul>
-          <a href={createWhatsAppUrl("Hello APIPL, please share a quotation for the RT 6901 SGCI Railway Insert.")} target="_blank" rel="noreferrer" className="text-link">
+          <a href={createWhatsAppUrl("Hello APIPL, please share a quotation for the RT 6901 Railway Sleeper Insert.")} target="_blank" rel="noreferrer" className="text-link">
             Request product quote <ArrowRight size={17} />
           </a>
         </div>
@@ -180,6 +184,32 @@ function Capabilities() {
             </article>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function ProcessSignature() {
+  const stages = [
+    ["01", "Metallurgy", "Controlled material composition"],
+    ["02", "Form", "Repeatable ARPA line moulding"],
+    ["03", "Precision", "Grinding and dimensional control"],
+    ["04", "Proof", "Inspection before dispatch"],
+  ];
+
+  return (
+    <section className="process-signature" aria-label="APIPL manufacturing process">
+      <div className="process-title">
+        <span>THE APIPL PRECISION LOOP</span>
+        <strong>Four disciplines.<br />One dependable result.</strong>
+      </div>
+      <div className="process-track">
+        {stages.map(([number, title, description]) => (
+          <article key={number}>
+            <span>{number}</span>
+            <div><strong>{title}</strong><p>{description}</p></div>
+          </article>
+        ))}
       </div>
     </section>
   );
@@ -294,7 +324,7 @@ function App() {
 
   return (
     <>
-      <Header /><main><Hero /><CompanyProfile /><Product /><Capabilities /><Specifications /><Contact /></main>
+      <Header /><main><Hero /><CompanyProfile /><Product /><Capabilities /><ProcessSignature /><Specifications /><Contact /></main>
       <footer>
         <div className="footer-inner">
           <div className="brand footer-brand"><img src="/assets/apipl-logo.png" alt="APIPL" /></div>
