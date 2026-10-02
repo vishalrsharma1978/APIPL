@@ -5,6 +5,7 @@ import {
   Check,
   ChevronRight,
   Gauge,
+  Globe,
   Mail,
   MapPin,
   Menu,
@@ -315,12 +316,31 @@ function Contact() {
         <p>Our RDSO-approved operational plants are available at the following locations:</p>
         <div className="business-unit-grid">
           {company.otherBusinessUnits.map(unit => (
-            <article key={unit.name} className="business-unit">
+            <article
+              key={unit.name}
+              className="business-unit business-unit-clickable"
+              role="link"
+              tabIndex={0}
+              onClick={() => {
+                if (window.confirm(`Open ${unit.name} website (${unit.website}) in a new tab?`)) {
+                  window.open(unit.website, "_blank", "noopener,noreferrer");
+                }
+              }}
+              onKeyDown={event => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  if (window.confirm(`Open ${unit.name} website (${unit.website}) in a new tab?`)) {
+                    window.open(unit.website, "_blank", "noopener,noreferrer");
+                  }
+                }
+              }}
+            >
               <h3>{unit.name}</h3>
               <span className="business-unit-railway">({unit.railway})</span>
               <div className="business-unit-row"><MapPin size={16} /><span>{unit.address}</span></div>
-              <a className="business-unit-row" href={`mailto:${unit.email}`}><Mail size={16} /><span>{unit.email}</span></a>
-              <a className="business-unit-row" href={`tel:${unit.phone.replace(/\s/g, "")}`}><Phone size={16} /><span>{unit.phone}</span></a>
+              <a className="business-unit-row" href={`mailto:${unit.email}`} onClick={event => event.stopPropagation()}><Mail size={16} /><span>{unit.email}</span></a>
+              <a className="business-unit-row" href={`tel:${unit.phone.replace(/\s/g, "")}`} onClick={event => event.stopPropagation()}><Phone size={16} /><span>{unit.phone}</span></a>
+              <a className="business-unit-row" href={unit.website} target="_blank" rel="noopener noreferrer" onClick={event => event.stopPropagation()}><Globe size={16} /><span>{unit.website.replace(/^https?:\/\//, "")}</span></a>
             </article>
           ))}
         </div>

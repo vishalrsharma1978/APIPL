@@ -158,6 +158,8 @@ h2 { font: 700 clamp(2.6rem, 5vw, 5.2rem)/1.02 "Manrope"; letter-spacing: -.055e
 .business-units > p { color: #d7e7f7; line-height: 1.7; max-width: 640px; margin-top: 10px; }
 .business-unit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 32px; }
 .business-unit { border: 1px solid rgba(255,255,255,.18); border-radius: 16px; background: linear-gradient(135deg, #0b1f35 0%, #123f6b 100%); padding: 26px; }
+.business-unit-clickable { cursor: pointer; transition: transform .2s, border-color .2s, box-shadow .2s; }
+.business-unit-clickable:hover { transform: translateY(-3px); border-color: rgba(255,255,255,.36); box-shadow: 0 18px 44px rgba(4,25,48,.3); }
 .business-unit h3 { font: 700 1rem "Manrope"; letter-spacing: -.01em; }
 .business-unit-railway { display: block; color: var(--lime); font-size: .78rem; font-weight: 600; margin-top: 4px; }
 .business-unit-row { display: flex; align-items: flex-start; gap: 10px; color: white; font-size: .82rem; line-height: 1.5; margin-top: 16px; }

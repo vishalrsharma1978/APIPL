@@ -21,6 +21,7 @@ export const siteConfig = {
           "Survey No. 908/1/2, Near-Ganesha Village Road, Kasthi Rly Station, Kasthi, Taluka - Shrigonda, Dist. Ahmednagar - 414701 MH.",
         email: "supertechrail@gmail.com",
         phone: "+91 98220 93075",
+        website: "https://supertechrailinfra.com",
       },
       {
         name: "RAGHAVENDRA RAIL LINES PVT. LTD.",
@@ -29,6 +30,7 @@ export const siteConfig = {
           "Survey No. 32 & 33 Bodjanampet Village - Grampanchayat, Balanagar Mandal, Bodajanampet, Mehbubnagar, Telanagana - 509202",
         email: "raghavendraraillines@gmail.com",
         phone: "+91 98220 93075",
+        website: "https://rrlpl.com",
       },
       {
         name: "PARAMOUNT RAIL INFRA PVT. LTD.",
@@ -37,6 +39,7 @@ export const siteConfig = {
           "Survey No. 266/4, Village – Godavari, Near- Digsar Railway Station, Taluka - Muli, Dist. Surendranagar - 363510 Gujrat.",
         email: "csppripl@gmail.com",
         phone: "+91 98220 93075",
+        website: "https://paramountrailinfra.com",
       },
     ],
     profile:
