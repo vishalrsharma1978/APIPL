@@ -145,8 +145,8 @@ function Product() {
           </div>
         </div>
         <div className="product-copy">
-          <span className="product-code">RT 6901</span>
-          <h3>SGCI Insert<br />RT 6901 alt 6</h3>
+          <span className="product-code">RT 6901 alt 6</span>
+          <h3>SGCI Insert</h3>
           <p>Embedded into concrete sleepers, the RT 6901 provides a robust anchoring point for rail fastening clips—transferring loads reliably across demanding track conditions.</p>
           <ul>
             {["SG Iron 500/7 construction", "Controlled dimensional tolerances", "High load-bearing integrity", "Production-ready at scale"].map(item => <li key={item}><Check size={17} />{item}</li>)}
