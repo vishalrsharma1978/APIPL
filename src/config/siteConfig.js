@@ -61,7 +61,7 @@ export const siteConfig = {
       ["Flash thickness", "1.5–2 mm"],
       ["Flash width", "2 mm"],
       ["Finishing process", "Grinding"],
-      ["Production volume", "150,000/day · 450,000/month"],
+      ["Production volume", "15,000/day · 450,000/month"],
     ],
   },
   chatbot: {

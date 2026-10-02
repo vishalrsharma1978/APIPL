@@ -78,7 +78,7 @@ function Hero() {
       <div className="hero-stats">
         <div><strong>500</strong><span>N/mm² tensile strength</span></div>
         <div><strong>190</strong><span>BHN minimum hardness</span></div>
-        <div><strong>150K</strong><span>units daily capacity</span></div>
+        <div><strong>15K</strong><span>units daily capacity</span></div>
       </div>
     </section>
   );
