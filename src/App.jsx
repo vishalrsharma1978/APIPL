@@ -321,17 +321,11 @@ function Contact() {
               className="business-unit business-unit-clickable"
               role="link"
               tabIndex={0}
-              onClick={() => {
-                if (window.confirm(`Open ${unit.name} website (${unit.website}) in a new tab?`)) {
-                  window.open(unit.website, "_blank", "noopener,noreferrer");
-                }
-              }}
+              onClick={() => window.open(unit.website, "_blank", "noopener,noreferrer")}
               onKeyDown={event => {
                 if (event.key === "Enter" || event.key === " ") {
                   event.preventDefault();
-                  if (window.confirm(`Open ${unit.name} website (${unit.website}) in a new tab?`)) {
-                    window.open(unit.website, "_blank", "noopener,noreferrer");
-                  }
+                  window.open(unit.website, "_blank", "noopener,noreferrer");
                 }
               }}
             >
