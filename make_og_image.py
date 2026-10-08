@@ -63,7 +63,18 @@ d.text((x0, 330), "Manufacturer  ·  RT 6901 SGCI", font=f_title, fill=WHITE)
 d.text((x0, 445), "RDSO-approved  |  SG Iron 500/7  |  450,000 inserts / month",
        font=f_sub, fill=MUTED)
 
-d.text((x0, 540), "apipl-website.onrender.com   ·   aashipowertech@gmail.com",
+# Call-to-action button (improves click-through on social previews)
+f_cta = load_font(30)
+cta_text = "Request a Quotation  \u2192"
+bbox = d.textbbox((0, 0), cta_text, font=f_cta)
+tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+pad_x, pad_y = 32, 18
+btn_x0, btn_y0 = x0, 515
+btn_x1, btn_y1 = btn_x0 + tw + pad_x * 2, btn_y0 + th + pad_y * 2
+d.rounded_rectangle([btn_x0, btn_y0, btn_x1, btn_y1], radius=14, fill=ACCENT)
+d.text((btn_x0 + pad_x, btn_y0 + pad_y - bbox[1]), cta_text, font=f_cta, fill=BG)
+
+d.text((btn_x1 + 28, btn_y0 + 18), "apipl-website.onrender.com",
        font=f_tag, fill=MUTED)
 
 out = "public/assets/og-image.png"
