@@ -1,0 +1,16 @@
+{
+  "name": "APIPL — Aashi Powertech India Private Limited",
+  "short_name": "APIPL",
+  "description": "RDSO-approved manufacturer of precision railway sleeper inserts (RT 6901 SGCI insert).",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1f35",
+  "theme_color": "#0b1f35",
+  "icons": [
+    {
+      "src": "/assets/apipl-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
