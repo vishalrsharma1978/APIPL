@@ -24,9 +24,11 @@ const productImages = [
   { src: "/assets/rt-6901-top.jpeg", label: "Top view" },
 ];
 
+const PRODUCT_ALT = "APIPL RT 6901 railway sleeper insert — high-strength SG iron (SGCI) precision casting";
+
 function Header() {
   const [open, setOpen] = useState(false);
-  const links = [["01", "Company", "#company"], ["02", "Product", "#product"], ["03", "Capabilities", "#capabilities"], ["04", "Specifications", "#specifications"], ["05", "Contact", "#contact"]];
+  const links = [["01", "Company", "#company"], ["02", "Product", "#product"], ["03", "Capabilities", "#capabilities"], ["04", "Specifications", "#specifications"], ["05", "FAQ", "#faq"], ["06", "Contact", "#contact"]];
 
   return (
     <header className={open ? "header menu-open" : "header"}>
@@ -59,7 +61,7 @@ function Hero() {
   return (
     <section className="hero" id="home">
       <div className="hero-media">
-        <img src="/assets/apipl-facility.jpeg" alt="APIPL manufacturing facility" />
+        <img src="/assets/apipl-facility.jpeg" alt="APIPL RDSO-approved railway sleeper insert manufacturing facility in India" />
       </div>
       <div className="hero-overlay" />
       <div className="hero-grid" />
@@ -108,7 +110,7 @@ function CompanyProfile() {
         <article><strong>RDSO</strong><span>approved plant</span></article>
       </div>
       <div className="company-story">
-        <div className="company-image"><img src="/assets/apipl-facility.jpeg" alt="APIPL manufacturing plant" /></div>
+        <div className="company-image"><img src="/assets/apipl-facility.jpeg" alt="APIPL precision casting plant producing railway sleeper inserts on ARPA 350 lines" /></div>
         <div className="purpose-grid">
           <article><span>Vision</span><p>{company.vision}</p></article>
           <article><span>Mission</span><p>{company.mission}</p></article>
@@ -135,7 +137,7 @@ function Product() {
         <div className="product-visual">
           <div className="image-stage">
             <span className="image-label">{productImages[active].label}</span>
-            <img src={productImages[active].src} alt={`RT 6901 insert ${productImages[active].label.toLowerCase()}`} />
+            <img src={productImages[active].src} alt={`${PRODUCT_ALT} — ${productImages[active].label.toLowerCase()}`} />
           </div>
           <div className="image-switcher">
             {productImages.map((image, index) => (
@@ -287,6 +289,37 @@ function Chatbot() {
   );
 }
 
+function Faq() {
+  const [open, setOpen] = useState(0);
+  const { faqs } = siteConfig;
+  return (
+    <section className="section faq-section" id="faq">
+      <div className="section-heading">
+        <div><span className="kicker">05 — FAQ</span><h2>Railway sleeper inserts,<br />answered.</h2></div>
+        <p>Common questions about APIPL precision railway sleeper inserts, materials, specifications and supply.</p>
+      </div>
+      <div className="faq-list">
+        {faqs.map((item, index) => {
+          const isOpen = open === index;
+          return (
+            <article key={item.q} className={isOpen ? "faq-item open" : "faq-item"}>
+              <button
+                className="faq-question"
+                aria-expanded={isOpen}
+                onClick={() => setOpen(isOpen ? -1 : index)}
+              >
+                <h3>{item.q}</h3>
+                <ChevronRight />
+              </button>
+              {isOpen && <p className="faq-answer">{item.a}</p>}
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   const { company } = siteConfig;
   return (
@@ -354,7 +387,7 @@ function App() {
 
   return (
     <>
-      <Header /><main><Hero /><CompanyProfile /><Product /><Capabilities /><ProcessSignature /><Specifications /><Contact /></main>
+      <Header /><main><Hero /><CompanyProfile /><Product /><Capabilities /><ProcessSignature /><Specifications /><Faq /><Contact /></main>
       <footer>
         <div className="footer-inner">
           <div className="brand footer-brand"><img src="/assets/apipl-logo.png" alt="APIPL" /></div>

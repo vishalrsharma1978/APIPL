@@ -67,6 +67,32 @@ export const siteConfig = {
       ["Production volume", "15,000/day · 450,000/month"],
     ],
   },
+  faqs: [
+    {
+      q: "What is a railway sleeper insert?",
+      a: "A railway sleeper insert is a cast component embedded into concrete sleepers that provides a strong, durable anchoring point for rail fastening clips. It transfers track loads reliably and keeps the rail securely fastened under heavy, repeated traffic.",
+    },
+    {
+      q: "What material are APIPL railway sleeper inserts made from?",
+      a: "APIPL's RT 6901 insert is manufactured from SG Iron 500/7 (spheroidal graphite cast iron / SGCI), delivering high ductility and strength for safety-critical railway applications.",
+    },
+    {
+      q: "What are the tensile strength and hardness of the RT 6901 insert?",
+      a: "The RT 6901 railway sleeper insert offers a minimum tensile strength of 500 N/mm², a minimum hardness of 190 BHN and minimum 7% elongation, produced under strict dimensional control.",
+    },
+    {
+      q: "What is APIPL's production capacity for railway inserts?",
+      a: "APIPL manufactures railway sleeper inserts at up to 15,000 units per day and 450,000 units per month on advanced ARPA 350 casting lines, enabling reliable supply for large-scale rail infrastructure projects.",
+    },
+    {
+      q: "Is APIPL an RDSO-approved manufacturer?",
+      a: "Yes. APIPL (Aashi Powertech India Private Limited) operates an RDSO-approved plant combining special-purpose machinery, IoT systems and Industry 4.0 practices to deliver consistent, precision-engineered railway components.",
+    },
+    {
+      q: "Can APIPL handle bulk and repeat orders?",
+      a: "Yes. With 6,000 MT annual casting capacity and 450,000 inserts per month, APIPL can reliably supply bulk and repeat orders for railway projects without compromising quality.",
+    },
+  ],
   chatbot: {
     greeting:
       "Hello! I’m the APIPL product assistant. What can I help you with today?",
