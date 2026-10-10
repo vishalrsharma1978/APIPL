@@ -1,0 +1,48 @@
+# ===== APIPL Website - Apache / cPanel config =====
+
+# --- Force HTTPS (uncomment after SSL is active in cPanel) ---
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# --- SPA routing: serve index.html for any non-file/non-directory request ---
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# --- Gzip compression ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript text/javascript
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# --- Browser caching ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Hashed assets can be cached long-term
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType font/woff2 "access plus 1 year"
+  # HTML should revalidate so updates show up
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# --- Don't cache index.html ---
+<IfModule mod_headers.c>
+  <FilesMatch "index\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# --- Custom error fallback to SPA ---
+ErrorDocument 404 /index.html
