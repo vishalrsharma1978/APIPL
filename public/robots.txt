@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://apipl-website.onrender.com/sitemap.xml
+Sitemap: https://aashipowertech.com/sitemap.xml
