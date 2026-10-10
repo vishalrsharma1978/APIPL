@@ -66,6 +66,19 @@ export const siteConfig = {
       ["Finishing process", "Grinding"],
       ["Production volume", "15,000/day · 450,000/month"],
     ],
+    overview:
+      "The RT 6901 railway sleeper insert from APIPL is a high-strength precision casting engineered for concrete railway sleepers. Manufactured from SG Iron 500/7 (spheroidal graphite cast iron), it delivers a minimum tensile strength of 500 N/mm² and 190 BHN hardness, providing a dependable anchoring point for rail fastening clips. Cast on advanced ARPA 350 lines with controlled grinding and dimensional checks, every insert supports stronger, safer and longer-lasting rail infrastructure.",
+    benefits: [
+      "Enhanced track stability and rail safety under heavy, repeated loads",
+      "Long service life with low maintenance cost across demanding conditions",
+      "Consistent quality backed by rigorous dimensional and material checks",
+      "Scalable supply — up to 15,000 inserts/day for large railway projects",
+    ],
+    applications: [
+      "Railway sleeper reinforcement and concrete sleeper fastening",
+      "Heavy-duty rail track installation and renewal",
+      "Rail infrastructure modernization and capacity-expansion projects",
+    ],
   },
   faqs: [
     {

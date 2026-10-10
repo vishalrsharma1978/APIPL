@@ -159,6 +159,23 @@ function Product() {
           </a>
         </div>
       </div>
+      <div className="product-detail">
+        <p className="product-overview">{siteConfig.product.overview}</p>
+        <div className="product-detail-grid">
+          <article>
+            <h3>Benefits for rail infrastructure</h3>
+            <ul>
+              {siteConfig.product.benefits.map(item => <li key={item}><Check size={16} />{item}</li>)}
+            </ul>
+          </article>
+          <article>
+            <h3>Applications</h3>
+            <ul>
+              {siteConfig.product.applications.map(item => <li key={item}><Check size={16} />{item}</li>)}
+            </ul>
+          </article>
+        </div>
+      </div>
     </section>
   );
 }
