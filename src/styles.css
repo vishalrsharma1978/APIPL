@@ -349,3 +349,5 @@ footer { background: #071727; color: white; padding: 0 5vw; }
   .loc-enquiry-grid { grid-template-columns: 1fr; }
   .enquiry-form, .enquiry-success { padding: 24px; }
 }
+.enquiry-error { color: #c0392b; font-size: .9rem; margin: 0 0 12px; }
+.enquiry-form .button:disabled { opacity: .6; cursor: default; }

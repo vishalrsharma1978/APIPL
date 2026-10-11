@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { ArrowRight, Check, Mail, MapPin, Phone, ChevronRight } from "lucide-react";
-import { siteConfig, createWhatsAppUrl } from "./config/siteConfig";
+import { siteConfig, createWhatsAppUrl, WEB3FORMS_ACCESS_KEY } from "./config/siteConfig";
 import { LOCATIONS, locationPath } from "./locations";
 
 function EnquiryForm({ city, state }) {
   const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   const update = (field) => (event) =>
     setForm((current) => ({ ...current, [field]: event.target.value }));
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const buildWhatsApp = () => {
     const lines = [
       `New enquiry from APIPL website (${city}, ${state})`,
       "",
@@ -21,8 +22,47 @@ function EnquiryForm({ city, state }) {
       "",
       `Enquiry: ${form.message}`,
     ].filter(Boolean);
-    const url = createWhatsAppUrl(lines.join("\n"));
-    window.open(url, "_blank", "noopener,noreferrer");
+    return createWhatsAppUrl(lines.join("\n"));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError("");
+
+    // If an email key is configured, send the enquiry by email via Web3Forms.
+    if (WEB3FORMS_ACCESS_KEY) {
+      setSending(true);
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `New enquiry — SGCI inserts in ${city}, ${state}`,
+            from_name: "APIPL Website",
+            name: form.name,
+            phone: form.phone,
+            email: form.email || "not provided",
+            location: `${city}, ${state}`,
+            message: form.message,
+          }),
+        });
+        const data = await response.json();
+        if (!data.success) throw new Error(data.message || "Submission failed");
+        setSending(false);
+        setSubmitted(true);
+        return;
+      } catch (err) {
+        setSending(false);
+        setError(
+          "We couldn't send your enquiry just now. Please try WhatsApp below.",
+        );
+        return;
+      }
+    }
+
+    // Fallback: hand off to WhatsApp with the details prefilled.
+    window.open(buildWhatsApp(), "_blank", "noopener,noreferrer");
     setSubmitted(true);
   };
 
@@ -96,8 +136,9 @@ function EnquiryForm({ city, state }) {
           placeholder={`Tell us about your requirement for railway sleeper inserts in ${city}...`}
         />
       </label>
-      <button type="submit" className="button primary">
-        Submit enquiry <ArrowRight size={18} />
+      {error && <p className="enquiry-error">{error}</p>}
+      <button type="submit" className="button primary" disabled={sending}>
+        {sending ? "Sending..." : "Submit enquiry"} <ArrowRight size={18} />
       </button>
     </form>
   );

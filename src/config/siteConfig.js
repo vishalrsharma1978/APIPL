@@ -147,3 +147,8 @@ export const siteConfig = {
 export function createWhatsAppUrl(message) {
   return `https://wa.me/${siteConfig.company.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
+
+// Web3Forms access key for emailing enquiries directly (free: https://web3forms.com).
+// Get a key by entering your email at web3forms.com, then paste it below.
+// Leave empty to fall back to WhatsApp-only submission.
+export const WEB3FORMS_ACCESS_KEY = "";
