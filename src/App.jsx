@@ -212,10 +212,10 @@ function Capabilities() {
 
 function ProcessSignature() {
   const stages = [
-    ["01", "Metallurgy", "Controlled material composition"],
-    ["02", "Form", "Repeatable ARPA line moulding"],
-    ["03", "Precision", "Grinding and dimensional control"],
-    ["04", "Proof", "Inspection before dispatch"],
+    ["01", "Metallurgy", "Controlled molten metal composition for SG Iron 500/7"],
+    ["02", "Moulding", "Repeatable ARPA-line moulding in dies, de-gating and shot blasting"],
+    ["03", "Precision", "Grinding to closer dimensional tolerance and good surface quality"],
+    ["04", "Proof", "Rigorous in-process inspection before dispatch"],
   ];
 
   return (
