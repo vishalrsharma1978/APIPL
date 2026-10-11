@@ -88,6 +88,8 @@ function applyLocationHead(page, location) {
 for (const location of LOCATIONS) {
   const appHtml = renderLocation(location);
   let page = applyLocationHead(template, location);
+  // Remove the home-specific <noscript> fallback (contains home contact details).
+  page = page.replace(/<noscript>[\s\S]*?<\/noscript>/, "");
   page = page.replace(
     '<div id="root"></div>',
     `<div id="root">${appHtml}</div>\n    <script>window.__APIPL_LOCATION__ = ${JSON.stringify(

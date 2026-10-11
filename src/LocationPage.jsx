@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowRight, Check, Mail, MapPin, Phone, ChevronRight } from "lucide-react";
+import { ArrowRight, Check, ChevronRight } from "lucide-react";
 import { siteConfig, createWhatsAppUrl, WEB3FORMS_ACCESS_KEY } from "./config/siteConfig";
 import { LOCATIONS, locationPath } from "./locations";
 
@@ -298,23 +298,6 @@ export default function LocationPage({ location }) {
                 Contact APIPL for quotations, technical data and bulk supply of
                 railway sleeper inserts in {city}, {state}.
               </p>
-              <a href={`tel:${company.phone.replace(/\s/g, "")}`}>
-                <Phone size={18} />
-                <span>
-                  {company.phone}
-                  <small>{company.alternatePhone}</small>
-                </span>
-              </a>
-              <a href={`mailto:${company.email}`}>
-                <Mail size={18} />
-                <span>{company.email}</span>
-              </a>
-              <div>
-                <MapPin size={18} />
-                <span>
-                  Registered Office<small>{company.registeredOffice}</small>
-                </span>
-              </div>
               <a
                 className="button primary"
                 href={createWhatsAppUrl(
