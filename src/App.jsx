@@ -17,7 +17,7 @@ import {
   Zap,
 } from "lucide-react";
 import { createWhatsAppUrl, siteConfig } from "./config/siteConfig";
-import { LOCATIONS, locationPath } from "./locations";
+import { LOCATIONS } from "./locations";
 
 const productImages = [
   { src: "/assets/rt-6901-front.jpeg", label: "Front view" },
@@ -339,43 +339,19 @@ function Faq() {
 }
 
 function Locations() {
-  const [selected, setSelected] = useState(null);
-
-  const openMessage = (event, location) => {
-    event.preventDefault();
-    setSelected(location);
-  };
-
-  const proceed = () => {
-    if (selected) window.location.href = locationPath(selected);
-  };
-
   return (
     <section className="section loc-links" id="locations">
       <div className="section-heading">
         <div><span className="kicker">Service areas</span><h2>SGCI inserts,<br />supplied across India.</h2></div>
-        <p>APIPL manufactures and supplies railway sleeper inserts to railway projects nationwide. Explore our service areas:</p>
+        <p>APIPL manufactures and supplies railway sleeper inserts to railway projects nationwide. We serve the following areas:</p>
       </div>
       <div className="loc-link-grid">
         {LOCATIONS.map(location => (
-          <a key={location.city} href={locationPath(location)} onClick={event => openMessage(event, location)}>
+          <div className="loc-static-card" key={location.city}>
             <span>SGCI inserts in {location.city}<small>{location.state}</small></span>
-            <ChevronRight size={16} />
-          </a>
+          </div>
         ))}
       </div>
-      {selected && (
-        <div className="loc-modal-overlay" onClick={proceed}>
-          <div className="loc-modal" role="dialog" aria-modal="true" onClick={event => event.stopPropagation()}>
-            <span className="loc-modal-icon"><Check /></span>
-            <h3>Thank you for your interest!</h3>
-            <p>Our team will get back to you shortly regarding SGCI inserts in {selected.city}, {selected.state}.</p>
-            <button className="button primary" onClick={proceed}>
-              Continue <ArrowRight size={18} />
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
