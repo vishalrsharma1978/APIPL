@@ -310,3 +310,24 @@ footer { background: #071727; color: white; padding: 0 5vw; }
   .product-detail-grid { grid-template-columns: 1fr; gap: 18px; }
   .product-detail-grid article { padding: 24px; }
 }
+
+/* Location (pSEO) pages */
+.location-header { position: static; }
+.location-cta { height: auto; }
+.loc-hero { padding-top: 120px; }
+.loc-hero h1 { font-family: "Manrope", sans-serif; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.05; margin: 14px 0 20px; }
+.loc-lead { color: var(--muted); font-size: 1.12rem; line-height: 1.8; max-width: 860px; }
+.loc-content h2, .loc-faq h2, .loc-enquiry h2, .loc-links h2 { font-family: "Manrope", sans-serif; font-size: clamp(1.5rem, 3.4vw, 2.2rem); margin: 0 0 20px; }
+.loc-content > p { color: var(--muted); font-size: 1.08rem; line-height: 1.8; max-width: 900px; margin-bottom: 36px; }
+.loc-faq .faq-item { margin-bottom: 14px; }
+.loc-contact { background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 36px; max-width: 640px; }
+.loc-contact h2 { margin-bottom: 10px; }
+.loc-contact > p { color: var(--muted); margin-bottom: 22px; }
+.loc-contact .button { margin-top: 10px; }
+.loc-link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; margin-top: 10px; }
+.loc-link-grid a { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 18px; background: var(--white); border: 1px solid var(--line); border-radius: 12px; transition: border-color .2s ease, transform .2s ease; }
+.loc-link-grid a:hover { border-color: var(--blue); transform: translateY(-2px); }
+.loc-link-grid span { display: flex; flex-direction: column; font-weight: 600; font-size: .95rem; }
+.loc-link-grid small { font-weight: 500; color: var(--muted); font-size: .8rem; margin-top: 2px; }
+.loc-link-grid svg { color: var(--blue); flex-shrink: 0; }
+.loc-link-home { background: var(--sky) !important; }

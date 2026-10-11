@@ -17,6 +17,7 @@ import {
   Zap,
 } from "lucide-react";
 import { createWhatsAppUrl, siteConfig } from "./config/siteConfig";
+import { LOCATIONS, locationPath } from "./locations";
 
 const productImages = [
   { src: "/assets/rt-6901-front.jpeg", label: "Front view" },
@@ -337,6 +338,25 @@ function Faq() {
   );
 }
 
+function Locations() {
+  return (
+    <section className="section loc-links" id="locations">
+      <div className="section-heading">
+        <div><span className="kicker">Service areas</span><h2>SGCI inserts,<br />supplied across India.</h2></div>
+        <p>APIPL manufactures and supplies railway sleeper inserts to railway projects nationwide. Explore our service areas:</p>
+      </div>
+      <div className="loc-link-grid">
+        {LOCATIONS.map(location => (
+          <a key={location.city} href={locationPath(location)}>
+            <span>SGCI inserts in {location.city}<small>{location.state}</small></span>
+            <ChevronRight size={16} />
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   const { company } = siteConfig;
   return (
@@ -404,7 +424,7 @@ function App() {
 
   return (
     <>
-      <Header /><main><Hero /><CompanyProfile /><Product /><Capabilities /><ProcessSignature /><Specifications /><Faq /><Contact /></main>
+      <Header /><main><Hero /><CompanyProfile /><Product /><Capabilities /><ProcessSignature /><Specifications /><Faq /><Locations /><Contact /></main>
       <footer>
         <div className="footer-inner">
           <div className="brand footer-brand"><img src="/assets/apipl-logo.png" alt="APIPL" /></div>
