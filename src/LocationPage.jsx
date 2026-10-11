@@ -1,7 +1,107 @@
-import React from "react";
+import React, { useState } from "react";
 import { ArrowRight, Check, Mail, MapPin, Phone, ChevronRight } from "lucide-react";
 import { siteConfig, createWhatsAppUrl } from "./config/siteConfig";
 import { LOCATIONS, locationPath } from "./locations";
+
+function EnquiryForm({ city, state }) {
+  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
+
+  const update = (field) => (event) =>
+    setForm((current) => ({ ...current, [field]: event.target.value }));
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const lines = [
+      `New enquiry from APIPL website (${city}, ${state})`,
+      "",
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      form.email ? `Email: ${form.email}` : null,
+      "",
+      `Enquiry: ${form.message}`,
+    ].filter(Boolean);
+    const url = createWhatsAppUrl(lines.join("\n"));
+    window.open(url, "_blank", "noopener,noreferrer");
+    setSubmitted(true);
+  };
+
+  if (submitted) {
+    return (
+      <div className="enquiry-success">
+        <span className="enquiry-success-icon">
+          <Check />
+        </span>
+        <h3>Thank you{form.name ? `, ${form.name}` : ""}!</h3>
+        <p>
+          Your enquiry for railway sleeper inserts in {city} has been received.
+          Our team will shortly get back to you.
+        </p>
+        <button
+          type="button"
+          className="button ghost"
+          onClick={() => {
+            setForm({ name: "", phone: "", email: "", message: "" });
+            setSubmitted(false);
+          }}
+        >
+          Submit another enquiry
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form className="enquiry-form" onSubmit={handleSubmit}>
+      <h3>Send an enquiry</h3>
+      <p className="enquiry-form-sub">
+        Share your requirement for {city} and our team will get back to you.
+      </p>
+      <label>
+        <span>Name</span>
+        <input
+          type="text"
+          required
+          value={form.name}
+          onChange={update("name")}
+          placeholder="Your name"
+        />
+      </label>
+      <label>
+        <span>Phone</span>
+        <input
+          type="tel"
+          required
+          value={form.phone}
+          onChange={update("phone")}
+          placeholder="Your phone / WhatsApp number"
+        />
+      </label>
+      <label>
+        <span>Email (optional)</span>
+        <input
+          type="email"
+          value={form.email}
+          onChange={update("email")}
+          placeholder="you@company.com"
+        />
+      </label>
+      <label>
+        <span>Enquiry</span>
+        <textarea
+          required
+          rows={4}
+          value={form.message}
+          onChange={update("message")}
+          placeholder={`Tell us about your requirement for railway sleeper inserts in ${city}...`}
+        />
+      </label>
+      <button type="submit" className="button primary">
+        Submit enquiry <ArrowRight size={18} />
+      </button>
+    </form>
+  );
+}
 
 export default function LocationPage({ location }) {
   const { city, state } = location;
@@ -150,39 +250,42 @@ export default function LocationPage({ location }) {
         </section>
 
         <section className="section loc-enquiry" id="enquiry">
-          <div className="contact-details loc-contact">
-            <h2>Get SGCI inserts in {city}</h2>
-            <p>
-              Contact APIPL for quotations, technical data and bulk supply of
-              railway sleeper inserts in {city}, {state}.
-            </p>
-            <a href={`tel:${company.phone.replace(/\s/g, "")}`}>
-              <Phone size={18} />
-              <span>
-                {company.phone}
-                <small>{company.alternatePhone}</small>
-              </span>
-            </a>
-            <a href={`mailto:${company.email}`}>
-              <Mail size={18} />
-              <span>{company.email}</span>
-            </a>
-            <div>
-              <MapPin size={18} />
-              <span>
-                Registered Office<small>{company.registeredOffice}</small>
-              </span>
+          <div className="loc-enquiry-grid">
+            <div className="contact-details loc-contact">
+              <h2>Get SGCI inserts in {city}</h2>
+              <p>
+                Contact APIPL for quotations, technical data and bulk supply of
+                railway sleeper inserts in {city}, {state}.
+              </p>
+              <a href={`tel:${company.phone.replace(/\s/g, "")}`}>
+                <Phone size={18} />
+                <span>
+                  {company.phone}
+                  <small>{company.alternatePhone}</small>
+                </span>
+              </a>
+              <a href={`mailto:${company.email}`}>
+                <Mail size={18} />
+                <span>{company.email}</span>
+              </a>
+              <div>
+                <MapPin size={18} />
+                <span>
+                  Registered Office<small>{company.registeredOffice}</small>
+                </span>
+              </div>
+              <a
+                className="button primary"
+                href={createWhatsAppUrl(
+                  `Hello APIPL, please share a quotation for RT 6901 railway sleeper inserts in ${city}, ${state}.`,
+                )}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Enquire on WhatsApp <ArrowRight size={18} />
+              </a>
             </div>
-            <a
-              className="button primary"
-              href={createWhatsAppUrl(
-                `Hello APIPL, please share a quotation for RT 6901 railway sleeper inserts in ${city}, ${state}.`,
-              )}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Enquire on WhatsApp <ArrowRight size={18} />
-            </a>
+            <EnquiryForm city={city} state={state} />
           </div>
         </section>
 
