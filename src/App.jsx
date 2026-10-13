@@ -17,7 +17,7 @@ import {
   Zap,
 } from "lucide-react";
 import { createWhatsAppUrl, siteConfig } from "./config/siteConfig";
-import { LOCATIONS } from "./locations";
+import { LOCATIONS, locationPath } from "./locations";
 
 const productImages = [
   { src: "/assets/rt-6901-front.jpeg", label: "Front view" },
@@ -340,7 +340,6 @@ function Faq() {
 
 function Locations() {
   const [expanded, setExpanded] = useState(false);
-  const visible = expanded ? LOCATIONS : LOCATIONS.slice(0, 15);
 
   return (
     <section className="section loc-links" id="locations">
@@ -348,15 +347,16 @@ function Locations() {
         <div><span className="kicker">Service areas</span><h2>SGCI inserts,<br />supplied across India.</h2></div>
         <p>APIPL manufactures and supplies railway sleeper inserts to railway projects nationwide. We serve the following areas:</p>
       </div>
-      <div className="loc-link-grid">
-        {visible.map(location => (
-          <div className="loc-static-card" key={location.city}>
+      <div className={expanded ? "loc-link-grid" : "loc-link-grid collapsed"}>
+        {LOCATIONS.map((location, index) => (
+          <a className={index >= 15 ? "loc-static-card loc-overflow" : "loc-static-card"} key={location.city} href={locationPath(location)}>
             <span>SGCI inserts in {location.city}<small>{location.state}</small></span>
-          </div>
+            <ChevronRight size={16} />
+          </a>
         ))}
       </div>
       {LOCATIONS.length > 15 && (
-        <button className="button ghost loc-toggle" onClick={() => setExpanded(current => !current)}>
+        <button className="button loc-toggle" onClick={() => setExpanded(current => !current)}>
           {expanded ? "Show fewer areas" : `Show all ${LOCATIONS.length} areas`}
           <ChevronRight size={17} className={expanded ? "loc-toggle-icon open" : "loc-toggle-icon"} />
         </button>
