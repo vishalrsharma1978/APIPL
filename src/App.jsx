@@ -415,8 +415,11 @@ function Contact() {
 function App() {
   useEffect(() => {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("visible");
-    }), { threshold: 0.12 });
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    }), { threshold: 0, rootMargin: "0px 0px -80px 0px" });
     document.querySelectorAll(".section, .capability-list article, .contact").forEach(element => observer.observe(element));
     return () => observer.disconnect();
   }, []);
