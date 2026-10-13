@@ -312,6 +312,7 @@ footer { background: #071727; color: white; padding: 0 5vw; }
 }
 
 /* Location (pSEO) pages */
+.location-page .section { opacity: 1; transform: none; }
 .location-header { position: static; }
 .location-cta { height: auto; }
 .loc-hero { padding-top: 120px; }
