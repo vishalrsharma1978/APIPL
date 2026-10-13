@@ -368,6 +368,7 @@ footer { background: #071727; color: white; padding: 0 5vw; }
 .loc-static-card small { font-weight: 500; color: var(--muted); font-size: .8rem; margin-top: 2px; }
 
 /* Show all areas toggle */
-.loc-toggle { margin-top: 28px; cursor: pointer; }
+.loc-toggle { margin-top: 28px; cursor: pointer; border: 1px solid var(--ink); color: var(--ink); background: transparent; transition: background .2s ease, color .2s ease; }
+.loc-toggle:hover { background: var(--ink); color: #fff; }
 .loc-toggle-icon { transition: transform .25s ease; }
 .loc-toggle-icon.open { transform: rotate(-90deg); }
