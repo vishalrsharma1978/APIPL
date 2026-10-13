@@ -366,3 +366,8 @@ footer { background: #071727; color: white; padding: 0 5vw; }
 .loc-static-card { display: flex; align-items: center; padding: 14px 18px; background: var(--white); border: 1px solid var(--line); border-radius: 12px; }
 .loc-static-card span { display: flex; flex-direction: column; font-weight: 600; font-size: .95rem; }
 .loc-static-card small { font-weight: 500; color: var(--muted); font-size: .8rem; margin-top: 2px; }
+
+/* Show all areas toggle */
+.loc-toggle { margin-top: 28px; cursor: pointer; }
+.loc-toggle-icon { transition: transform .25s ease; }
+.loc-toggle-icon.open { transform: rotate(-90deg); }

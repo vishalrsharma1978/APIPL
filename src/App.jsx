@@ -339,6 +339,9 @@ function Faq() {
 }
 
 function Locations() {
+  const [expanded, setExpanded] = useState(false);
+  const visible = expanded ? LOCATIONS : LOCATIONS.slice(0, 15);
+
   return (
     <section className="section loc-links" id="locations">
       <div className="section-heading">
@@ -346,12 +349,18 @@ function Locations() {
         <p>APIPL manufactures and supplies railway sleeper inserts to railway projects nationwide. We serve the following areas:</p>
       </div>
       <div className="loc-link-grid">
-        {LOCATIONS.map(location => (
+        {visible.map(location => (
           <div className="loc-static-card" key={location.city}>
             <span>SGCI inserts in {location.city}<small>{location.state}</small></span>
           </div>
         ))}
       </div>
+      {LOCATIONS.length > 15 && (
+        <button className="button ghost loc-toggle" onClick={() => setExpanded(current => !current)}>
+          {expanded ? "Show fewer areas" : `Show all ${LOCATIONS.length} areas`}
+          <ChevronRight size={17} className={expanded ? "loc-toggle-icon open" : "loc-toggle-icon"} />
+        </button>
+      )}
     </section>
   );
 }
